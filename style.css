@@ -1,10 +1,15 @@
 :root {
-  --shadow: rgba(0, 0, 0, 0.05) 0px 6px 10px 0px,
+  --shadow-button: rgba(0, 0, 0, 0.05) 0px 6px 10px 0px,
     rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
-  --color: rgb(241, 237, 237);
-  --background-color: rgb(6 182 212);
+
+  --font-color: #222831;
+  --color: #eeeeee;
+  --background-color: #00adb5;
+  --background-color-page: #393e46;
+
   --gap: 0.5rem;
   --radius: 0.5rem;
+
   --font-weight: 600;
 }
 * {
@@ -34,18 +39,20 @@ body {
   font-size: medium;
   margin: 0.5rem;
 }
+
 .nav__sort-button {
-  padding: 0.5rem 1rem;
-  column-gap: var(--gap);
-  border-radius: var(--radius);
   background-color: var(--background-color);
   color: var(--color);
-  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-button);
+
   font-size: medium;
   font-weight: var(--font-weight);
-  box-shadow: var(--shadow);
+
+  padding: 0.5rem 1rem;
   cursor: pointer;
 }
+
 .nav__sort-button:hover {
   opacity: 80%;
 }
@@ -66,15 +73,14 @@ body {
   cursor: pointer;
 }
 .nav__date-button {
-  padding: 5px 2rem;
-  margin: 0.2rem;
-  border-radius: var(--radius);
-  border: none;
   background-color: var(--background-color);
-  font-weight: var(--font-weight);
   color: var(--color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-button);
+  font-weight: var(--font-weight);
+
+  padding: 5px 2rem;
   cursor: pointer;
-  box-shadow: var(--shadow);
 }
 .nav__date-button:hover {
   opacity: 80%;
@@ -82,21 +88,24 @@ body {
 /* end nav_data */
 
 /* start category */
+.nav__category {
+  width: 40px;
+}
 .nav__category-button {
   background-color: var(--background-color);
+  color: var(--color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-button);
+  font-weight: var(--font-weight);
+  width: 100px;
+  /* min-width: 50px;/ */
+  padding: 0.6rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  column-gap: var(--gap);
-  padding: 0.6rem;
-  cursor: pointer;
-  border-radius: var(--radius);
-  border: none;
-  margin: 0.5rem 0;
-  box-shadow: var(--shadow);
   position: relative;
-  color: var(--color);
-  font-weight: var(--font-weight);
 }
 .nav__category-button:hover {
   opacity: 80%;
@@ -109,7 +118,7 @@ body {
 .nav__category-dropdown {
   position: absolute;
   width: 12rem;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-button);
   border-radius: var(--radius);
   margin-top: 0.3rem;
   background: rgb(66, 65, 65);
@@ -155,8 +164,9 @@ body {
   height: auto;
   margin: 1.5rem auto;
   padding: 0.1rem;
-  box-shadow: 0px 0px 10px 0px #5f5f5fe2;
+  box-shadow: 0px 0px 10px 0px var(--background-color-page);
   border-radius: var(--radius);
+  background-color: var(--color);
 }
 .container-card div {
   margin: 1px 10px;

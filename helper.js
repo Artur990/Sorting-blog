@@ -13,26 +13,35 @@ export const addCategory = (arr) => {
   });
 };
 
-// date range filtering function
-export const filterBlogPostsByDate = (startDate, endDate, arr) => {
+// function to filter posts from
+export const filterBlogPostsByDateFrom = (startDate, _, arr) => {
   let newArr = arr.filter((post) => {
     var postDate = Date.parse(post.date);
-    return postDate >= Date.parse(startDate) && postDate <= Date.parse(endDate);
+    return postDate >= Date.parse(startDate);
   });
-  if (newArr.length === 0) {
-    return alert("No posts in this ranking");
-  } else {
-    addCard(newArr);
-  }
+  addCard(newArr);
+  return newArr;
 };
 
-// category sorting function
+// function to filter posts to
+export const filterBlogPostsByDateTo = (_, endDate, arr) => {
+  let newArr = arr.filter((post) => {
+    var postDate = Date.parse(post.date);
+    return postDate <= Date.parse(endDate);
+  });
+  addCard(newArr);
+  return newArr;
+};
+
+// function to  sort category
 export const filterBlogPostsByCategory = (category, arr) => {
   if (category === "all") {
-    return addCard(arr);
+    addCard(arr);
+    return arr;
   } else {
     let newArr = arr.filter((post) => post.category === category);
-    return addCard(newArr);
+    addCard(newArr);
+    return newArr;
   }
 };
 
@@ -56,12 +65,14 @@ export const addCard = (arr, param) => {
 };
 
 // function to sort the date from ascending
-export const sortByDateAscending = (posts) => {
-  posts.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
-  addCard(posts, "sort");
+export const sortByDateAscending = (arr) => {
+  let newArr = arr.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
+  addCard(arr, "sort");
+  return newArr;
 };
 // function to sort the date from descending
 export const sortByDateDescending = (arr) => {
-  arr.sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
+  let newArr = arr.sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
   addCard(arr, "sort");
+  return newArr;
 };
